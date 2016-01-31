@@ -1,0 +1,17 @@
+//
+   Created by kumar on 23/01/16.
+extends layout
+block content
+    form(action='/auth/signUp', method="POST")
+        input(type="text", name="email", id="login-email")
+        label Email
+        br
+        input(type= "password", name="password", id="login-password")
+        label password
+        br
+        input(type= "password", name="confirm-password", id="login-password-confirmation")
+        label confirm-password
+        br
+        input(type= "submit" id="submit")
+        label submit
+        br
