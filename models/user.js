@@ -11,7 +11,7 @@ function validatePasswordLength(val){
     return val&&val.length >=REQUIRED_STRING_LENGTH;
 }
 
-var schema = mongoose.Schema({
+var schema = new mongoose.Schema({
     email:{type:String,unique:true,required:true},
     passwordHash:{type:String},
     isActivated:{type:Boolean}
@@ -51,6 +51,6 @@ schema.statics.findByEmail = function findByEmail(email,cb){
 };
 
 
-var Model = mongoose.model('User',schema);
+var Model = mongoose.model('user',schema);
 
 module.exports = Model;

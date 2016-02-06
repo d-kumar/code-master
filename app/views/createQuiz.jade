@@ -1,0 +1,10 @@
+//
+   Created by kumar on 05/02/16.
+extends layout
+block content
+    form(action='/quiz/createQuiz/',method="POST")
+        input(type="textbox",name="quizName")
+        br
+        label Enter the Quiz Name Above!
+        br
+        input(type="submit")

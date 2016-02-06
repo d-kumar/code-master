@@ -1,0 +1,8 @@
+//
+   Created by kumar on 04/02/16.
+extends layout
+block content
+        each quiz in quizList
+            a(href="/quiz/"+quiz.quizName+"/questions") #{quiz.quizName}
+            br
+        a(href="/quiz/createQuiz") Add Quiz
