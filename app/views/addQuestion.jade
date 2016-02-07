@@ -1,0 +1,25 @@
+//
+   Created by kumar on 07/02/16.
+extends layout
+block content
+    form(method="POST",action="/quiz/" + quizName + "/questions/addQuestion")
+        input(type="text" name="questionBody")
+        br
+        label Enter the question description
+        br
+        input(type="text" name="option1")
+        label Option1
+        br
+        input(type="text" name="option2")
+        label Option2
+        br
+        input(type="text" name="option3")
+        label Option3
+        br
+        input(type="text" name="option4")
+        label Option4
+        br
+        input(type="text" name="answer")
+        label Answer
+        br
+        input(type="submit")
