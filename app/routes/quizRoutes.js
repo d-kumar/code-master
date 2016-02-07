@@ -46,7 +46,7 @@ function addQuestiontoQuiz(req,res,next){
         if(err){
             res.status(422).send("Problem :"+err.message);
         }else {
-            quiz.findOneAndUpdate({quizName:req.params.quizName},{$push:{questions:question}},{upsert:true},function(err){
+            quiz.findOneAndUpdate({quizName:req.params.quizName,'questions.questionBody':{$ne:question.questionBody}},{$push:{questions:question}},function(err){
                 if(err){
                     res.status(422).send("Problem: "+err.message);
                 } else
@@ -59,10 +59,13 @@ function addQuestiontoQuiz(req,res,next){
 
 }
 
-
+function renderQuestionAdditionForm(req,res){
+    res.render('addQuestion',{quizName:req.params.quizName})
+}
 
 exports.home = home;
 exports.createQuiz = createQuiz;
 exports.saveQuiz = saveQuiz;
 exports.listQuestions = listQuestions;
 exports.addQuestiontoQuiz = addQuestiontoQuiz;
+exports.renderQuestionAdditionForm = renderQuestionAdditionForm;
