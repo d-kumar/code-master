@@ -8,7 +8,8 @@ function quizesRoutes(app){
     var quizRouter = express.Router();
     quizRouter.route('/').get(quizRoutes.home);
     quizRouter.route('/createQuiz').get(quizRoutes.createQuiz).post(quizRoutes.saveQuiz);
-    quizRouter.route('/:quizName/questions').get(quizRoutes.listQuestions).post(quizRoutes.addQuestiontoQuiz);
+    quizRouter.route('/:quizName/questions').get(quizRoutes.listQuestions);
+    quizRouter.route('/:quizName/questions/addQuestion').post(quizRoutes.addQuestiontoQuiz).get(quizRoutes.renderQuestionAdditionForm);
     app.use('/quiz',quizRouter);
 }
 
