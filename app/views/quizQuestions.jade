@@ -3,30 +3,14 @@
 
 extends layout
 block content
+    -var i=1
     each question in questions
-        p #{question.questionBody}
+        p Qustion#{i}: #{question.questionBody}
+        -i++
+        -var j=1
         each option in question.options
-            p #{option}
-    form(method="POST",action="/quiz/"+quizName+"/questions")
-        input(type="text" name="questionBody")
-        br
-        label Enter the question description
-        br
-        input(type="text" name="option1")
-        label Option1
-        br
-        input(type="text" name="option2")
-        label Option2
-        br
-        input(type="text" name="option3")
-        label Option3
-        br
-        input(type="text" name="option4")
-        label Option4
-        br
-        input(type="text" name="answer")
-        label Answer
-        br
-        input(type="submit")
+            p Option#{j}: #{option}
+            -j++
+    a(href="/quiz/"+quizName+"/questions/addQuestion") Add Question
 
 
